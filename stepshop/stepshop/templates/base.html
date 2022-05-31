@@ -33,27 +33,11 @@
         <div class="row">
           <div class="col-md-12">
             <span><!--Suspendisse laoreet magna vel diam lobortis imperdiet-->
-
-
-<!--             {{user.username|title}} {{user.is_active}}              | - фильтр  Все фильтры: https://docs.djangoproject.com/en/4.0/ref/templates/language/#filters -->
-<!--             {{user.first_name|title}} {{user.last_name|title}}-->
-<!--             {{user.date_joined|date:"d.m.Y"}}-->
-
-<!--                {% now "Y" %}-->
-<!--                {#% now "Y" %#}                                        # - комментарии -->
-
-
-
             {% if user.is_authenticated %}
               {{user.first_name}} {{user.last_name}}
             {% else %}
               <a href="/admin/login">Войти:</a>
             {% endif %}
-
-<!--            {% for item in object %}-->
-<!--              {{item}}-->
-<!--            {% endfor %}  -->
-
             </span>
           </div>
         </div>
