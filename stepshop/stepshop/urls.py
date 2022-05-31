@@ -20,8 +20,8 @@ from stepshop.views import index, contacts, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('contacts/', contacts),
-    path('about/', about),
-    path('products/', include('mainapp.urls')),
+    path('', index, name='index'),
+    path('contacts/', contacts, name='contacts'),
+    path('about/', about, name='about'),
+    path('products/', include('mainapp.urls', namespace='products')),
 ]

@@ -2,7 +2,14 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'index.html')
+    title = 'главная страница'
+
+    context = {
+        'title': title,
+    }
+
+    return render(request, 'index.html', context)
+    # return render(request=request, template_name='index.html', context=context)
 
 
 def contacts(request):
