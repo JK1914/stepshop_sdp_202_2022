@@ -1,0 +1,62 @@
+[
+  {
+    "model": "mainapp.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Джинсы синие",
+      "image": "product_images/big-02_johwuZs.jpg",
+      "short_desc": "Хорошие",
+      "description": "",
+      "price": "500.00",
+      "quantity": 5,
+      "created_at": "2022-06-01T11:40:43.038Z",
+      "updated_at": "2022-06-02T10:10:45.925Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Джинсы черные",
+      "image": "product_images/big-03.jpg",
+      "short_desc": "Лучшие",
+      "description": "",
+      "price": "800.00",
+      "quantity": 6,
+      "created_at": "2022-06-01T11:41:54.470Z",
+      "updated_at": "2022-06-02T09:23:00.877Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 3,
+    "fields": {
+      "category": 1,
+      "name": "Джинсы серые",
+      "image": "product_images/big-02.jpg",
+      "short_desc": "Не очень",
+      "description": "",
+      "price": "200.00",
+      "quantity": 8,
+      "created_at": "2022-06-02T09:22:15.049Z",
+      "updated_at": "2022-06-02T09:22:15.049Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 4,
+    "fields": {
+      "category": 1,
+      "name": "Джинсы белые",
+      "image": "product_images/item-06.jpg",
+      "short_desc": "Белые",
+      "description": "",
+      "price": "450.00",
+      "quantity": 3,
+      "created_at": "2022-06-02T09:48:15.170Z",
+      "updated_at": "2022-06-02T10:12:10.819Z"
+    }
+  }
+]
