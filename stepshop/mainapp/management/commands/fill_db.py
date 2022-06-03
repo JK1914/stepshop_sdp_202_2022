@@ -7,11 +7,12 @@ from django.core.management.base import BaseCommand
 
 from mainapp.models import ProductCategory, Product
 
+
 JSON_PATH = 'mainapp/fixtures'
 
 
 def load_from_json(file_name):
-    with open(os.path.join(JSON_PATH, file_name + '.json'), mode='r', encoding='utf-8') as f:
+    with open(os.path.join(JSON_PATH, file_name + '.json'), mode='r', encoding='UTF-8') as f:
         return json.load(f)
 
 
@@ -23,14 +24,16 @@ class Command(BaseCommand):
         products = load_from_json('products')
 
         for category in categories:
-            new_category = ProductCategory(**category)
+            fields = category.get('fields')
+            new_category = ProductCategory(**fields)
             new_category.save()
 
         for product in products:
-            category_pk = product.get('category')
-            _category = ProductCategory.object.get(pk=category_pk)
-            product['category'] = _category
-            new_product = Product(**product)
+            fields = product.get('fields')
+            category_pk = fields['category']
+            _category = ProductCategory.objects.get(pk=category_pk)
+            fields['category'] = _category
+            new_product = Product(**fields)
             new_product.save()
 
         User.objects.create_superuser('admin', 'admin@stepshop.kz', '123')
