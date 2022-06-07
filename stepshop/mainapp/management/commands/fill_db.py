@@ -1,11 +1,12 @@
 import json
 import os.path
 
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.core import management
 from django.core.management.base import BaseCommand
 
 from mainapp.models import ProductCategory, Product
+from authapp.models import ShopUser
 
 
 JSON_PATH = 'mainapp/fixtures'
@@ -24,8 +25,11 @@ class Command(BaseCommand):
         products = load_from_json('products')
 
         for category in categories:
-            fields = category.get('fields')
-            new_category = ProductCategory(**fields)
+
+            _category = category.get('fields')
+            _category['id'] = category.get('pk')
+
+            new_category = ProductCategory(**_category)
             new_category.save()
 
         for product in products:
@@ -36,4 +40,4 @@ class Command(BaseCommand):
             new_product = Product(**fields)
             new_product.save()
 
-        User.objects.create_superuser('admin', 'admin@stepshop.kz', '123')
+        ShopUser.objects.create_superuser('admin', 'admin@stepshop.kz', '123', age=16)
