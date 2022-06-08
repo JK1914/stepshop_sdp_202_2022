@@ -64,7 +64,7 @@
         <div id="{{ product.pk }}" class="item new col-md-4">
             <a href="#">
                 <div class="featured-item">
-                    <img src="/media/{{ product.image }}" alt="">
+                    <img src="/media/{{ product.image }}" alt="{{ product.name|capfirst }}">
                     <h4>{{ product.name }}</h4>
                     <h6>${{ product.price }}</h6>
                 </div>

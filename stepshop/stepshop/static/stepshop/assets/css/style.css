@@ -1,0 +1,15 @@
+#pre-header a {
+    color: white;
+}
+
+/*#pre-header span{*/
+/*    color: yellow;*/
+
+/*}#pre-header span:hover{*/
+/*    color: lightgreen;*/
+/*}*/
+
+#pre-header a:hover{
+    /*opacity: 0.8;*/
+    color: lightskyblue;
+}
