@@ -45,9 +45,11 @@
 
                     <button class="btn btn-primary" data-filter="*">Все</button>
 
+
                     {% for category in categories %}
                     <button class="btn btn-primary" data-filter="{{ category.name }}">{{ category.name }}</button>
                     {% endfor %}
+
 
                 </div>
             </div>
