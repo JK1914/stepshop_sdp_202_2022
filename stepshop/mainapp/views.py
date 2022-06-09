@@ -13,7 +13,7 @@ links_menu = [
 def products(request):
     title = 'Продукты'
 
-    products_ = Product.objects.all()[:3]
+    products_ = Product.objects.all().order_by('-price')  # .filter(category__name='Джинсы').order_by('-price') [:3]
     categories = ProductCategory.objects.all()
 
     context = {
