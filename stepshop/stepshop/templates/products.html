@@ -5,34 +5,7 @@
 {% block content %}
 <!-- Page Content -->
 <!-- Items Starts Here -->
-<div class="featured-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-12">
-                <div class="section-heading">
-                    <div class="line-dec"></div>
-                    <h1>{{title|capfirst}}</h1>
-                </div>
-            </div>
-            <div class="col-md-8 col-sm-12">
-                <div id="filters" class="button-group">
-
-                    <button class="btn btn-primary" data-filter="*">Все</button>
-
-
-                    {% for category in categories %}
-                        <button class="btn btn-primary" data-filter="{{ category.name }}">{{ category.name }}</button>
-                    {% endfor %}
-
-<!--                    <button class="btn btn-primary" data-filter="*">All Products</button>-->
-<!--                    <button class="btn btn-primary" data-filter=".new">Newest</button>-->
-<!--                    <button class="btn btn-primary" data-filter=".low">Low Price</button>-->
-<!--                    <button class="btn btn-primary" data-filter=".high">Hight Price</button>-->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{% include 'includes/inc_category_menu.html' %}
 
 <div class="featured container no-gutter">
 
@@ -49,7 +22,6 @@
             </a>
         </div>
         {% endfor %}
-
 
     </div>
 </div>
@@ -72,6 +44,6 @@
 {% endblock %}
 
 {% block js %}
-        <script src="{% static 'stepshop/assets/js/isotope.js' %}"></script>
+<script src="{% static 'stepshop/assets/js/isotope.js' %}"></script>
 {% endblock %}
 
