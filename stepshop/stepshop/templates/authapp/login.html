@@ -16,8 +16,14 @@
                 {{ login_form.as_p }}
                 <button type="submit" class="btn btn-primary">Войти</button>
             </form>
+            <button class="btn btn-round btn-primary">
+                <a href="{% url 'auth:register' %}" class="text-light">Зарегистрироваться</a>
+            </button>
         </div>
     </div>
+
+
+
 </div>
 
 
