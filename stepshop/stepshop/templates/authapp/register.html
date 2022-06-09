@@ -22,29 +22,29 @@
                     {{ register_form.username }}
                 </p>
                 <p>
-                    <label>Имя:
+                    <label for="first_name">Имя: </label>
                     {{ register_form.first_name }}
-                    </label>
                 </p>
                 <p>
-                    <label>Пароль:
+                    <label for="password1">Пароль:</label>
                     {{ register_form.password1 }}
-                    </label>
+                    {{ register_form.errors.password1 }}
                 </p>
                 <p>
-                    <label>Подтверждение пароля:
+                    <label for="password2">Подтверждение пароля:</label>
                     {{ register_form.password2 }}
-                    </label>
+                    {{ register_form.errors.password2 }}
                 </p>
                 <p>
-                    <label>Эл. почта:
+                    <label for="email">Эл. почта:</label>
                     {{ register_form.email }}
-                    </label>
+                    {{ register_form.errors.email }}
                 </p>
                 <p>
-                    <label>Возраст:
+                    <label for="age">Возраст:</label>
                     {{ register_form.age }}
-                    </label>
+                    {{ register_form.errors.age }}
+
                 </p>
                 <p>
                     <label>Аватар:
