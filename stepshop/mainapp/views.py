@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
+from basketapp.models import Basket
 from mainapp.models import Product, ProductCategory
 
 links_menu = [
@@ -16,6 +17,11 @@ def products(request, pk=None):
     products_ = Product.objects.all().order_by('-price')  # .filter(category__name='Джинсы').order_by('-price') [:3]
     categories = ProductCategory.objects.all()
 
+    basket = []
+
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     if pk is not None:
         if pk == 0:
             products_ = Product.objects.all().order_by('price')
@@ -30,6 +36,7 @@ def products(request, pk=None):
             'products': products_,
             'categories': categories,
             'category': category,
+            'basket': basket,
         }
 
         return render(request, 'products.html', context)
