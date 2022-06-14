@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 /stepshop/media/
 /stepshop/stepshop/media/
+/stepshop/_db.sqlite3
