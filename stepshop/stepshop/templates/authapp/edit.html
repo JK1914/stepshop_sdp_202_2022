@@ -1,0 +1,33 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %} {{title|capfirst}} {% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>{{title|capfirst}}</h1>
+
+    <div class="row">
+        <div class="mx-auto col-4">
+
+            <div class="user_avatar">
+                <img src="/media/{{ user.avatar }}" alt="{{ user.username }}" class="rounded-circle">
+            </div>
+
+            <form class="form-horizontal" action="{% url 'auth:edit' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ edit_form.as_p }}
+
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <button class="btn btn-primary">
+                <a href="{% url 'index' %}" class="text-light">На главную</a>
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -35,7 +35,9 @@
           <div class="col-md-12">
             <span><!--Suspendisse laoreet magna vel diam lobortis imperdiet-->
             {% if user.is_authenticated %}
-              {{user.first_name}} {{user.last_name}}
+              <a href="{% url 'auth:edit' %}">
+                {{user.first_name}}
+              </a>
               | <a href="{% url 'auth:logout' %}">Выйти</a>
 
             {% else %}
@@ -47,15 +49,11 @@
       </div>
     </div>
 
-
-
     {% include 'includes/inc_main_menu.html' %}
-
 
     {% block content %}
     HTML-код, который отобразится на странице.
     {% endblock %}
-
 
     <!-- Subscribe Form Starts Here -->
     <div class="subscribe-form">
