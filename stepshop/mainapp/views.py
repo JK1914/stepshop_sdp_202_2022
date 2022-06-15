@@ -46,6 +46,7 @@ def products(request, pk=None):
         'links_menu': links_menu,
         'products': products_,
         'categories': categories,
+        'basket': basket,
     }
 
     return render(request, 'products.html', context)

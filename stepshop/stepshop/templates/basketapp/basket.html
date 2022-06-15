@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <div class="container w-50 mt-5">
+            <div class="row basket_list">
+                <table class="table mt-3">
+                    <thead>
+                    <tr>
+                        <th class="col-1">№</th>
+                        <th class="col">Продукт</th>
+                        <th class="col">Количество</th>
+                        <th class="col">Стоимость</th>
+                        <th class="col">Удалить</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in basket %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ item.product }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.product.price }}</td>
+                            <td>
+                                <button class="btn btn-round">
+                                    <a href="{% url 'basket:remove' item.pk %}">Удалить</a>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="basket_summary">
+                Всего товаров: <strong>{{ basket.0.total_quantity }}</strong><br><!--TODO: дописал -->
+                Общая стоимость: <strong>${{ basket.0.total_cost|floatformat:"g" }}</strong>
+            </div>
+        </div>
+
+    {% endif %}
+{% endblock %}
