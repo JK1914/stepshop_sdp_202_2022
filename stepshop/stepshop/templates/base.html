@@ -60,6 +60,7 @@
             {% if basket %}
                <a href="{% url 'basket:view' %}" class="basket">
                 <span>{{ basket.0.total_quantity }}</span>
+
                </a>
 
             <div class="nav-link">${{ basket.0.total_cost|floatformat:"g" }}</div>
