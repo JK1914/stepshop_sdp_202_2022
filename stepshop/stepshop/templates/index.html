@@ -31,51 +31,88 @@
 <!-- Banner Ends Here -->
 
 <!-- Items Starts Here -->
-<div class="featured-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-12">
-                <div class="section-heading">
-                    <div class="line-dec"></div>
-                    <h1>{{title|capfirst}}</h1>
-                </div>
-            </div>
-            <div class="col-md-8 col-sm-12">
-                <div id="filters" class="button-group">
+<!--<div class="featured-page">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-4 col-sm-12">-->
+<!--                <div class="section-heading">-->
+<!--                    <div class="line-dec"></div>-->
+<!--                    <h1>{{title|capfirst}}</h1>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-8 col-sm-12">-->
+<!--                <div id="filters" class="button-group">-->
 
-                    <button class="btn btn-primary" data-filter="*">Все</button>
-
-
-                    {% for category in categories %}
-                    <button class="btn btn-primary" data-filter="{{ category.name }}">{{ category.name }}</button>
-                    {% endfor %}
+<!--                    <button class="btn btn-primary" data-filter="*">Все</button>-->
 
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--                    {% for category in categories %}-->
+<!--                    <button class="btn btn-primary" data-filter="{{ category.name }}">{{ category.name }}</button>-->
+<!--                    {% endfor %}-->
+
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!-- Featured Starts Here -->
-<div class="featured container no-gutter">
 
-    <div class="row posts">
 
-        {% for product in products %}
-        <div id="{{ product.pk }}" class="item new col-md-4">
-            <a href="#">
-                <div class="featured-item">
-                    <img src="/media/{{ product.image }}" alt="{{ product.name|capfirst }}">
-                    <h4>{{ product.name }}</h4>
-                    <h6>${{ product.price }}</h6>
+
+<div class="featured-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h1>Наши товары</h1>
                 </div>
-            </a>
-        </div>
-        {% endfor %}
+            </div>
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme">
 
+                    {% for product in products %}
+
+                        <a href="#">
+                            <div class="featured-item">
+                                <img src="/media/{{ product.image }}" alt="{{ product.name|capfirst }}">
+                                <h4>{{ product.name|capfirst }}</h4>
+                                <h6>${{ product.price }}</h6>
+                            </div>
+                        </a>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
+
+
+<!--<div class="featured container no-gutter">-->
+
+<!--    <div class="row posts">-->
+
+<!--        {% for product in products %}-->
+<!--        <div id="{{ product.pk }}" class="item new col-md-4">-->
+<!--            <a href="#">-->
+<!--                <div class="featured-item">-->
+<!--                    <img src="/media/{{ product.image }}" alt="{{ product.name|capfirst }}">-->
+<!--                    <h4>{{ product.name }}</h4>-->
+<!--                    <h6>${{ product.price }}</h6>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+
+<!--    </div>-->
+<!--</div>-->
+
 
 <!-- Featred Ends Here -->
 {% endblock %}

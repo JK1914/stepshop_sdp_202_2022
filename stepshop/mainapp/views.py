@@ -11,6 +11,16 @@ links_menu = [
 ]
 
 
+def get_basket(user):
+    if user.is_authenticated:
+        return Basket.objects.filter(user=user)
+    return []
+
+
+def get_same_products(current_product):
+    return Product.objects.filter(category=current_product.category).exclude(pk=current_product.pk)
+
+
 def products(request, pk=None):
     title = 'Продукты'
 
@@ -52,12 +62,16 @@ def products(request, pk=None):
     return render(request, 'products.html', context)
 
 
-def product(request):
+def product(request, pk=None):
     title = 'продукт'
 
     context = {
         'title': title,
         'links_menu': links_menu,
+        'product': get_object_or_404(Product, pk=pk),
+        'basket': get_basket(request.user),
+        'same_products': get_same_products(get_object_or_404(Product, pk=pk)),
+
     }
 
     return render(request, 'product.html', context)
