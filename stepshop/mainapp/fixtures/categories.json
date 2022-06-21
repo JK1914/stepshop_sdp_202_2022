@@ -1,18 +1,1 @@
-[
-  {
-    "model": "mainapp.productcategory",
-    "pk": 1,
-    "fields": {
-      "name": "Джинсы",
-      "description": "Джинсы"
-    }
-  },
-  {
-    "model": "mainapp.productcategory",
-    "pk": 2,
-    "fields": {
-      "name": "Рубашки",
-      "description": "Рубашки"
-    }
-  }
-]
+[{"model": "mainapp.productcategory", "pk": 1, "fields": {"name": "Джинсы", "description": "Джинсы"}}, {"model": "mainapp.productcategory", "pk": 2, "fields": {"name": "Рубашки", "description": "Рубашки"}}]

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load mytags %}
+
 
 {% block title %}
   {{title|capfirst}}
@@ -18,7 +20,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <img src="/media/{{ product.image }}" alt="{{ product.name }}" class="w-100"/>
+            <img src="{{ product.image|media_folder_products }}" alt="{{ product.name }}" class="w-100"/>
           </div>
           <div class="col-md-6">
             <div class="right-content">
@@ -61,9 +63,9 @@
         <div class="owl-carousel owl-theme">
 
           {% for product in same_products %}
-          <a href="product.html">
+          <a href="{% url 'products:product' product.pk %}">
             <div class="featured-item">
-              <img src="/media/{{ product.image }}" alt="{{ product.name }}">
+              <img src="{{ product.image|media_folder_products }}" alt="{{ product.name }}">
               <h4>{{ product.name }}</h4>
               <h6>${{ product.price|floatformat:"g" }}</h6>
             </div>
