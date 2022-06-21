@@ -71,7 +71,6 @@ def product(request, pk=None):
         'product': get_object_or_404(Product, pk=pk),
         'basket': get_basket(request.user),
         'same_products': get_same_products(get_object_or_404(Product, pk=pk)),
-
     }
 
     return render(request, 'product.html', context)
