@@ -1,14 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 
 from basketapp.models import Basket
+from common.links_menu import link_menu
 from mainapp.models import Product, ProductCategory
-
-links_menu = [
-    {'href': 'index', 'name': 'Домой', 'route': ''},
-    {'href': 'products:index', 'name': 'Продукты', 'route': 'products/'},
-    {'href': 'about', 'name': 'О&nbsp;нас', 'route': 'about/'},
-    {'href': 'contacts', 'name': 'Контакты', 'route': 'contacts/'},
-]
 
 
 def index(request, pk=None):
@@ -32,7 +26,7 @@ def index(request, pk=None):
 
     context = {
         'title': title,
-        'links_menu': links_menu,
+        'links_menu': link_menu(),
         'products': products_,
         'categories': categories,
         'basket': basket,
@@ -52,7 +46,7 @@ def contacts(request):
 
     context = {
         'title': title,
-        'links_menu': links_menu,
+        'links_menu': link_menu(),
         'basket': basket,
     }
 
@@ -69,7 +63,7 @@ def about(request):
 
     context = {
         'title': title,
-        'links_menu': links_menu,
+        'links_menu': link_menu(),
         'basket': basket,
     }
 
